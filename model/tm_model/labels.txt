@@ -1,0 +1,3 @@
+0 Valid_Claim
+1 Manual_Review
+2 Invalid_Claim

@@ -1,0 +1,212 @@
+[
+  {
+    "file": "output/comparison_30/1009__Invalid_Claim.jpg",
+    "true": "Invalid_Claim",
+    "pred": "Manual_Review",
+    "confidence": 0.7848511338233948,
+    "correct": false
+  },
+  {
+    "file": "output/comparison_30/1063__Invalid_Claim.jpg",
+    "true": "Invalid_Claim",
+    "pred": "Invalid_Claim",
+    "confidence": 0.9618852734565735,
+    "correct": true
+  },
+  {
+    "file": "output/comparison_30/1103__Manual_Review.jpg",
+    "true": "Manual_Review",
+    "pred": "Manual_Review",
+    "confidence": 0.9997789263725281,
+    "correct": true
+  },
+  {
+    "file": "output/comparison_30/1165__Valid_Claim.jpg",
+    "true": "Valid_Claim",
+    "pred": "Valid_Claim",
+    "confidence": 0.7823124527931213,
+    "correct": true
+  },
+  {
+    "file": "output/comparison_30/1254__Manual_Review.jpg",
+    "true": "Manual_Review",
+    "pred": "Manual_Review",
+    "confidence": 0.9995087385177612,
+    "correct": true
+  },
+  {
+    "file": "output/comparison_30/1363__Valid_Claim.jpg",
+    "true": "Valid_Claim",
+    "pred": "Valid_Claim",
+    "confidence": 0.503787636756897,
+    "correct": true
+  },
+  {
+    "file": "output/comparison_30/1442__Manual_Review.jpg",
+    "true": "Manual_Review",
+    "pred": "Manual_Review",
+    "confidence": 0.999461829662323,
+    "correct": true
+  },
+  {
+    "file": "output/comparison_30/1447__Manual_Review.jpg",
+    "true": "Manual_Review",
+    "pred": "Valid_Claim",
+    "confidence": 0.9583122134208679,
+    "correct": false
+  },
+  {
+    "file": "output/comparison_30/176__Invalid_Claim.jpg",
+    "true": "Invalid_Claim",
+    "pred": "Invalid_Claim",
+    "confidence": 0.7796263694763184,
+    "correct": true
+  },
+  {
+    "file": "output/comparison_30/1__Valid_Claim.jpg",
+    "true": "Valid_Claim",
+    "pred": "Manual_Review",
+    "confidence": 0.5204930901527405,
+    "correct": false
+  },
+  {
+    "file": "output/comparison_30/277__Invalid_Claim.jpg",
+    "true": "Invalid_Claim",
+    "pred": "Invalid_Claim",
+    "confidence": 0.753750205039978,
+    "correct": true
+  },
+  {
+    "file": "output/comparison_30/288__Manual_Review.jpg",
+    "true": "Manual_Review",
+    "pred": "Manual_Review",
+    "confidence": 0.999862551689148,
+    "correct": true
+  },
+  {
+    "file": "output/comparison_30/295__Manual_Review.jpg",
+    "true": "Manual_Review",
+    "pred": "Manual_Review",
+    "confidence": 0.9975041747093201,
+    "correct": true
+  },
+  {
+    "file": "output/comparison_30/376__Valid_Claim.jpg",
+    "true": "Valid_Claim",
+    "pred": "Valid_Claim",
+    "confidence": 0.8768978118896484,
+    "correct": true
+  },
+  {
+    "file": "output/comparison_30/431__Valid_Claim.jpg",
+    "true": "Valid_Claim",
+    "pred": "Valid_Claim",
+    "confidence": 0.9815672039985657,
+    "correct": true
+  },
+  {
+    "file": "output/comparison_30/451__Valid_Claim.jpg",
+    "true": "Valid_Claim",
+    "pred": "Valid_Claim",
+    "confidence": 0.8519102931022644,
+    "correct": true
+  },
+  {
+    "file": "output/comparison_30/454__Manual_Review.jpg",
+    "true": "Manual_Review",
+    "pred": "Manual_Review",
+    "confidence": 0.8131293058395386,
+    "correct": true
+  },
+  {
+    "file": "output/comparison_30/470__Manual_Review.jpg",
+    "true": "Manual_Review",
+    "pred": "Invalid_Claim",
+    "confidence": 0.8615507483482361,
+    "correct": false
+  },
+  {
+    "file": "output/comparison_30/481__Valid_Claim.jpg",
+    "true": "Valid_Claim",
+    "pred": "Valid_Claim",
+    "confidence": 0.9870975613594055,
+    "correct": true
+  },
+  {
+    "file": "output/comparison_30/542__Manual_Review.jpg",
+    "true": "Manual_Review",
+    "pred": "Manual_Review",
+    "confidence": 0.8625672459602356,
+    "correct": true
+  },
+  {
+    "file": "output/comparison_30/596__Invalid_Claim.jpg",
+    "true": "Invalid_Claim",
+    "pred": "Manual_Review",
+    "confidence": 0.8699029088020325,
+    "correct": false
+  },
+  {
+    "file": "output/comparison_30/616__Invalid_Claim.jpg",
+    "true": "Invalid_Claim",
+    "pred": "Invalid_Claim",
+    "confidence": 0.8489305377006531,
+    "correct": true
+  },
+  {
+    "file": "output/comparison_30/634__Manual_Review.jpg",
+    "true": "Manual_Review",
+    "pred": "Manual_Review",
+    "confidence": 0.9999067783355713,
+    "correct": true
+  },
+  {
+    "file": "output/comparison_30/718__Valid_Claim.jpg",
+    "true": "Valid_Claim",
+    "pred": "Valid_Claim",
+    "confidence": 0.7247210741043091,
+    "correct": true
+  },
+  {
+    "file": "output/comparison_30/754__Invalid_Claim.jpg",
+    "true": "Invalid_Claim",
+    "pred": "Invalid_Claim",
+    "confidence": 0.781731903553009,
+    "correct": true
+  },
+  {
+    "file": "output/comparison_30/776__Invalid_Claim.jpg",
+    "true": "Invalid_Claim",
+    "pred": "Invalid_Claim",
+    "confidence": 0.8481550812721252,
+    "correct": true
+  },
+  {
+    "file": "output/comparison_30/7__Invalid_Claim.jpg",
+    "true": "Invalid_Claim",
+    "pred": "Manual_Review",
+    "confidence": 0.5256117582321167,
+    "correct": false
+  },
+  {
+    "file": "output/comparison_30/815__Valid_Claim.jpg",
+    "true": "Valid_Claim",
+    "pred": "Valid_Claim",
+    "confidence": 0.9979913234710693,
+    "correct": true
+  },
+  {
+    "file": "output/comparison_30/880__Valid_Claim.jpg",
+    "true": "Valid_Claim",
+    "pred": "Valid_Claim",
+    "confidence": 0.7551957964897156,
+    "correct": true
+  },
+  {
+    "file": "output/comparison_30/987__Invalid_Claim.jpg",
+    "true": "Invalid_Claim",
+    "pred": "Invalid_Claim",
+    "confidence": 0.8998962640762329,
+    "correct": true
+  }
+]
