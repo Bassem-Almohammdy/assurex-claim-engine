@@ -1,0 +1,9 @@
+# توليد بطاقات Claim Summary Card
+Pillow>=10.0.0
+
+# فقط عند تجربة predict_tm.py بعد تصدير نموذج Teachable Machine
+numpy>=1.24.0
+tensorflow>=2.13.0
+# ضروري: نماذج Teachable Machine مصدَّرة بصيغة Keras 2 قديمة، ولا تُحمَّل
+# على TensorFlow 2.16+ بدون هذه الحزمة (انظر التعليق داخل predict_tm.py)
+tf-keras
