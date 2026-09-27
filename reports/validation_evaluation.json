@@ -1,0 +1,19 @@
+{
+  "total": 225,
+  "correct": 165,
+  "accuracy": 0.7333333333333333,
+  "per_class": {
+    "Invalid_Claim": {
+      "total": 75,
+      "correct": 39
+    },
+    "Manual_Review": {
+      "total": 75,
+      "correct": 58
+    },
+    "Valid_Claim": {
+      "total": 75,
+      "correct": 68
+    }
+  }
+}

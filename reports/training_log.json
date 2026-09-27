@@ -1,0 +1,26 @@
+{
+  "variations_per_train_claim": 2,
+  "train_claims": 1050,
+  "validation_claims": 225,
+  "test_claims": 225,
+  "total_train_images": 2100,
+  "meets_2100_minimum": true,
+  "per_class_counts": {
+    "train": {
+      "Valid": 700,
+      "Invalid": 700,
+      "Manual Review": 700
+    },
+    "validation": {
+      "Valid": 75,
+      "Invalid": 75,
+      "Manual Review": 75
+    },
+    "test": {
+      "Valid": 75,
+      "Invalid": 75,
+      "Manual Review": 75
+    }
+  },
+  "comparison_sample_size": 30
+}

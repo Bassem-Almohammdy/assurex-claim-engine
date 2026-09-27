@@ -1,0 +1,152 @@
+[
+  {
+    "claim_id": "542",
+    "true_class": "Manual Review",
+    "file": "output\\comparison_30\\542__Manual_Review.jpg"
+  },
+  {
+    "claim_id": "277",
+    "true_class": "Invalid",
+    "file": "output\\comparison_30\\277__Invalid_Claim.jpg"
+  },
+  {
+    "claim_id": "1363",
+    "true_class": "Valid",
+    "file": "output\\comparison_30\\1363__Valid_Claim.jpg"
+  },
+  {
+    "claim_id": "1103",
+    "true_class": "Manual Review",
+    "file": "output\\comparison_30\\1103__Manual_Review.jpg"
+  },
+  {
+    "claim_id": "616",
+    "true_class": "Invalid",
+    "file": "output\\comparison_30\\616__Invalid_Claim.jpg"
+  },
+  {
+    "claim_id": "7",
+    "true_class": "Invalid",
+    "file": "output\\comparison_30\\7__Invalid_Claim.jpg"
+  },
+  {
+    "claim_id": "376",
+    "true_class": "Valid",
+    "file": "output\\comparison_30\\376__Valid_Claim.jpg"
+  },
+  {
+    "claim_id": "718",
+    "true_class": "Valid",
+    "file": "output\\comparison_30\\718__Valid_Claim.jpg"
+  },
+  {
+    "claim_id": "288",
+    "true_class": "Manual Review",
+    "file": "output\\comparison_30\\288__Manual_Review.jpg"
+  },
+  {
+    "claim_id": "1447",
+    "true_class": "Manual Review",
+    "file": "output\\comparison_30\\1447__Manual_Review.jpg"
+  },
+  {
+    "claim_id": "1009",
+    "true_class": "Invalid",
+    "file": "output\\comparison_30\\1009__Invalid_Claim.jpg"
+  },
+  {
+    "claim_id": "176",
+    "true_class": "Invalid",
+    "file": "output\\comparison_30\\176__Invalid_Claim.jpg"
+  },
+  {
+    "claim_id": "880",
+    "true_class": "Valid",
+    "file": "output\\comparison_30\\880__Valid_Claim.jpg"
+  },
+  {
+    "claim_id": "596",
+    "true_class": "Invalid",
+    "file": "output\\comparison_30\\596__Invalid_Claim.jpg"
+  },
+  {
+    "claim_id": "454",
+    "true_class": "Manual Review",
+    "file": "output\\comparison_30\\454__Manual_Review.jpg"
+  },
+  {
+    "claim_id": "481",
+    "true_class": "Valid",
+    "file": "output\\comparison_30\\481__Valid_Claim.jpg"
+  },
+  {
+    "claim_id": "295",
+    "true_class": "Manual Review",
+    "file": "output\\comparison_30\\295__Manual_Review.jpg"
+  },
+  {
+    "claim_id": "815",
+    "true_class": "Valid",
+    "file": "output\\comparison_30\\815__Valid_Claim.jpg"
+  },
+  {
+    "claim_id": "987",
+    "true_class": "Invalid",
+    "file": "output\\comparison_30\\987__Invalid_Claim.jpg"
+  },
+  {
+    "claim_id": "634",
+    "true_class": "Manual Review",
+    "file": "output\\comparison_30\\634__Manual_Review.jpg"
+  },
+  {
+    "claim_id": "1",
+    "true_class": "Valid",
+    "file": "output\\comparison_30\\1__Valid_Claim.jpg"
+  },
+  {
+    "claim_id": "1165",
+    "true_class": "Valid",
+    "file": "output\\comparison_30\\1165__Valid_Claim.jpg"
+  },
+  {
+    "claim_id": "754",
+    "true_class": "Invalid",
+    "file": "output\\comparison_30\\754__Invalid_Claim.jpg"
+  },
+  {
+    "claim_id": "451",
+    "true_class": "Valid",
+    "file": "output\\comparison_30\\451__Valid_Claim.jpg"
+  },
+  {
+    "claim_id": "470",
+    "true_class": "Manual Review",
+    "file": "output\\comparison_30\\470__Manual_Review.jpg"
+  },
+  {
+    "claim_id": "776",
+    "true_class": "Invalid",
+    "file": "output\\comparison_30\\776__Invalid_Claim.jpg"
+  },
+  {
+    "claim_id": "431",
+    "true_class": "Valid",
+    "file": "output\\comparison_30\\431__Valid_Claim.jpg"
+  },
+  {
+    "claim_id": "1442",
+    "true_class": "Manual Review",
+    "file": "output\\comparison_30\\1442__Manual_Review.jpg"
+  },
+  {
+    "claim_id": "1063",
+    "true_class": "Invalid",
+    "file": "output\\comparison_30\\1063__Invalid_Claim.jpg"
+  },
+  {
+    "claim_id": "1254",
+    "true_class": "Manual Review",
+    "file": "output\\comparison_30\\1254__Manual_Review.jpg"
+  }
+]

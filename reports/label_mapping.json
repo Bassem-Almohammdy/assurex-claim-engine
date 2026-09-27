@@ -1,0 +1,17 @@
+{
+  "classes": [
+    "Valid",
+    "Invalid",
+    "Manual Review"
+  ],
+  "index_to_label": {
+    "0": "Valid",
+    "1": "Invalid",
+    "2": "Manual Review"
+  },
+  "folder_names": {
+    "Valid": "Valid_Claim",
+    "Invalid": "Invalid_Claim",
+    "Manual Review": "Manual_Review"
+  }
+}
