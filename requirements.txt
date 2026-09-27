@@ -7,3 +7,9 @@ tensorflow>=2.13.0
 # ضروري: نماذج Teachable Machine مصدَّرة بصيغة Keras 2 قديمة، ولا تُحمَّل
 # على TensorFlow 2.16+ بدون هذه الحزمة (انظر التعليق داخل predict_tm.py)
 tf-keras
+
+# تبعيات أعضاء آخرين (معالجة بيانات/تحليل)
+pandas
+scikit-learn
+matplotlib
+tabulate
