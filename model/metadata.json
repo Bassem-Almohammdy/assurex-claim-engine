@@ -1,0 +1,52 @@
+{
+    "project": "AssureX Claim Engine",
+    "model_name": "XGBoost",
+    "model_version": "1.0",
+    "task": "Multi-class warranty claim classification",
+
+    "classes": [
+        "Invalid",
+        "Manual Review",
+        "Valid"
+    ],
+
+    "dataset": {
+        "total_samples": 1500,
+        "train_samples": 1050,
+        "validation_samples": 225,
+        "test_samples": 225,
+        "split": "70% train / 15% validation / 15% test",
+        "random_state": 42,
+        "stratified": true
+    },
+
+    "results": {
+        "validation_accuracy": 0.9422,
+        "test_accuracy": 0.9200,
+        "cross_validation_mean": 0.9200,
+        "cross_validation_std": 0.0097,
+        "cross_validation_folds": 5
+    },
+
+    "test_results": {
+        "total": 225,
+        "correct": 207,
+        "incorrect": 18,
+        "average_top_confidence": 0.9569
+    },
+
+    "hyperparameters": {
+        "n_estimators": 200,
+        "max_depth": 6,
+        "learning_rate": 0.1,
+        "subsample": 0.9,
+        "colsample_bytree": 0.9,
+        "random_state": 42
+    },
+
+    "saved_files": {
+        "model": "models/xgboost_pipeline.pkl",
+        "label_encoder": "models/label_encoder.pkl",
+        "test_predictions": "models/python_test_predictions.csv"
+    }
+}
