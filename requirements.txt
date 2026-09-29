@@ -13,3 +13,6 @@ pandas
 scikit-learn
 matplotlib
 tabulate
+
+# Running tests in tests/
+pytest>=7.0.0
