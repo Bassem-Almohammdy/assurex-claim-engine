@@ -1,0 +1,31 @@
+claim_id,actual_class,python_prediction,Invalid_probability,Manual_Review_probability,Valid_probability,top_confidence,claim_summary_card_filename,predicted_class_match,top_class_confidence_difference,model_consistency_status,warranty_rule_result,missing_documents,contradictions_detected,duplicate_claim_indicators,final_application_decision,major_disagreement_explanation,tm_prediction,tm_invalid_probability,tm_manual_review_probability,tm_valid_probability
+1442,Manual Review,Manual Review,0.00012979574,0.9997274,0.0001427929,0.9997274,,False,0.149727,Model Disagreement,,,,,,,Valid,0.05,0.1,0.85
+376,Valid,Valid,6.434191e-05,0.031440493,0.96849513,0.96849513,,False,0.148495,Model Disagreement,,,,,,,Invalid,0.82,0.13,0.05
+663,Valid,Valid,0.00011611239,0.0073903217,0.9924935,0.9924935,,False,0.272494,Model Disagreement,,,,,,,Manual Review,0.15,0.72,0.13
+487,Invalid,Invalid,0.96558136,0.034132637,0.00028594414,0.96558136,,False,0.115581,Model Disagreement,,,,,,,Valid,0.05,0.1,0.85
+767,Manual Review,Manual Review,0.114754036,0.8811967,0.0040493216,0.8811967,,False,0.061197,Model Disagreement,,,,,,,Invalid,0.82,0.13,0.05
+1363,Valid,Valid,0.00019120396,0.048652884,0.9511559,0.9511559,,False,0.231156,Model Disagreement,,,,,,,Manual Review,0.15,0.72,0.13
+513,Valid,Valid,4.8042337e-05,0.006195011,0.9937569,0.9937569,,True,0.143757,Acceptable Match,,,,,,,Valid,0.05,0.1,0.85
+846,Valid,Valid,1.4590571e-05,0.00648297,0.99350244,0.99350244,,False,0.173502,Model Disagreement,,,,,,,Invalid,0.82,0.13,0.05
+474,Invalid,Invalid,0.94355047,0.05614687,0.000302716,0.94355047,,False,0.22355,Model Disagreement,,,,,,,Manual Review,0.15,0.72,0.13
+1009,Invalid,Invalid,0.8478588,0.14755484,0.0045863776,0.8478588,,False,0.002141,Model Disagreement,,,,,,,Valid,0.05,0.1,0.85
+506,Manual Review,Manual Review,0.001632073,0.99105483,0.007313174,0.99105483,,False,0.171055,Model Disagreement,,,,,,,Invalid,0.82,0.13,0.05
+288,Manual Review,Manual Review,0.00021733876,0.9926818,0.007100827,0.9926818,,True,0.272682,Weak Match,,,,,,,Manual Review,0.15,0.72,0.13
+189,Valid,Valid,1.7636474e-05,0.005202581,0.9947798,0.9947798,,True,0.14478,Acceptable Match,,,,,,,Valid,0.05,0.1,0.85
+949,Invalid,Invalid,0.9884753,0.011439868,8.473361e-05,0.9884753,,True,0.168475,Acceptable Match,,,,,,,Invalid,0.82,0.13,0.05
+1162,Valid,Valid,3.493998e-05,0.0020854366,0.9978796,0.9978796,,False,0.27788,Model Disagreement,,,,,,,Manual Review,0.15,0.72,0.13
+1438,Invalid,Invalid,0.9820112,0.017901901,8.6872526e-05,0.9820112,,False,0.132011,Model Disagreement,,,,,,,Valid,0.05,0.1,0.85
+1252,Valid,Valid,6.53059e-05,0.045504395,0.9544303,0.9544303,,False,0.13443,Model Disagreement,,,,,,,Invalid,0.82,0.13,0.05
+1432,Invalid,Invalid,0.9865529,0.01338961,5.7515597e-05,0.9865529,,False,0.266553,Model Disagreement,,,,,,,Manual Review,0.15,0.72,0.13
+914,Valid,Valid,1.0644108e-05,0.0010375311,0.9989518,0.9989518,,True,0.148952,Acceptable Match,,,,,,,Valid,0.05,0.1,0.85
+609,Invalid,Invalid,0.9719721,0.027884087,0.00014378768,0.9719721,,True,0.151972,Acceptable Match,,,,,,,Invalid,0.82,0.13,0.05
+33,Manual Review,Manual Review,0.038594928,0.9579546,0.0034504933,0.9579546,,True,0.237955,Weak Match,,,,,,,Manual Review,0.15,0.72,0.13
+1212,Valid,Valid,9.344258e-05,0.003665149,0.99624145,0.99624145,,True,0.146241,Acceptable Match,,,,,,,Valid,0.05,0.1,0.85
+122,Manual Review,Manual Review,0.0004896161,0.9989299,0.00058049004,0.9989299,,False,0.17893,Model Disagreement,,,,,,,Invalid,0.82,0.13,0.05
+50,Invalid,Invalid,0.955787,0.042309813,0.0019031727,0.955787,,False,0.235787,Model Disagreement,,,,,,,Manual Review,0.15,0.72,0.13
+1409,Invalid,Invalid,0.90793514,0.091705784,0.00035912162,0.90793514,,False,0.057935,Model Disagreement,,,,,,,Valid,0.05,0.1,0.85
+23,Invalid,Invalid,0.99009,0.009223541,0.0006863999,0.99009,,True,0.17009,Acceptable Match,,,,,,,Invalid,0.82,0.13,0.05
+740,Manual Review,Invalid,0.93087614,0.068810284,0.0003136245,0.93087614,,False,0.210876,Model Disagreement,,,,,,,Manual Review,0.15,0.72,0.13
+274,Manual Review,Manual Review,0.0030119389,0.9946563,0.002331775,0.9946563,,False,0.144656,Model Disagreement,,,,,,,Valid,0.05,0.1,0.85
+1254,Manual Review,Manual Review,0.0016214476,0.9821129,0.016265664,0.9821129,,False,0.162113,Model Disagreement,,,,,,,Invalid,0.82,0.13,0.05
+454,Manual Review,Manual Review,0.00014364571,0.9597227,0.040133618,0.9597227,,True,0.239723,Weak Match,,,,,,,Manual Review,0.15,0.72,0.13

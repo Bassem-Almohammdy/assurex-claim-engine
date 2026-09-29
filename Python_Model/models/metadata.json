@@ -1,0 +1,77 @@
+{
+    "project": "AssureX Claim Engine",
+    "model_name": "XGBoost",
+    "model_version": "1.0",
+    "task": "Multi-class warranty claim classification",
+
+    "classes": [
+        "Invalid",
+        "Manual Review",
+        "Valid"
+    ],
+
+    "dataset": {
+        "total_samples": 1500,
+        "train_samples": 1050,
+        "validation_samples": 225,
+        "test_samples": 225,
+        "split": "70% train / 15% validation / 15% test",
+        "random_state": 42,
+        "stratified": true
+    },
+
+    "algorithms_tested": [
+        "Logistic Regression",
+        "Random Forest",
+        "XGBoost"
+    ],
+
+    "results": {
+        "logistic_regression": {
+            "validation_accuracy": 0.8533,
+            "test_accuracy": 0.8711
+        },
+
+        "random_forest": {
+            "validation_accuracy": 0.9244,
+            "test_accuracy": 0.9244
+        },
+
+        "xgboost": {
+            "validation_accuracy": 0.9422,
+            "test_accuracy": 0.9200
+        }
+    },
+
+    "cross_validation": {
+        "method": "StratifiedKFold",
+        "folds": 5,
+        "mean_accuracy": 0.9200,
+        "std": 0.0097
+    },
+
+    "test_results": {
+        "total": 225,
+        "correct": 207,
+        "incorrect": 18,
+        "accuracy": 0.9200,
+        "average_top_confidence": 0.9569
+    },
+
+    "hyperparameters": {
+        "n_estimators": 200,
+        "max_depth": 6,
+        "learning_rate": 0.1,
+        "subsample": 0.9,
+        "colsample_bytree": 0.9,
+        "random_state": 42
+    },
+
+    "saved_files": {
+        "model": "models/xgboost_pipeline.pkl",
+        "label_encoder": "models/label_encoder.pkl",
+        "test_predictions": "models/python_test_predictions.csv",
+        "incorrect_predictions": "models/python_incorrect_predictions.csv",
+        "comparison": "models/model_comparison_30.csv"
+    }
+}

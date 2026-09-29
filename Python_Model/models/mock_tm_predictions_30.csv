@@ -1,0 +1,31 @@
+claim_id,tm_prediction,tm_invalid_probability,tm_manual_review_probability,tm_valid_probability
+1442,Valid,0.05,0.1,0.85
+376,Invalid,0.82,0.13,0.05
+663,Manual Review,0.15,0.72,0.13
+487,Valid,0.05,0.1,0.85
+767,Invalid,0.82,0.13,0.05
+1363,Manual Review,0.15,0.72,0.13
+513,Valid,0.05,0.1,0.85
+846,Invalid,0.82,0.13,0.05
+474,Manual Review,0.15,0.72,0.13
+1009,Valid,0.05,0.1,0.85
+506,Invalid,0.82,0.13,0.05
+288,Manual Review,0.15,0.72,0.13
+189,Valid,0.05,0.1,0.85
+949,Invalid,0.82,0.13,0.05
+1162,Manual Review,0.15,0.72,0.13
+1438,Valid,0.05,0.1,0.85
+1252,Invalid,0.82,0.13,0.05
+1432,Manual Review,0.15,0.72,0.13
+914,Valid,0.05,0.1,0.85
+609,Invalid,0.82,0.13,0.05
+33,Manual Review,0.15,0.72,0.13
+1212,Valid,0.05,0.1,0.85
+122,Invalid,0.82,0.13,0.05
+50,Manual Review,0.15,0.72,0.13
+1409,Valid,0.05,0.1,0.85
+23,Invalid,0.82,0.13,0.05
+740,Manual Review,0.15,0.72,0.13
+274,Valid,0.05,0.1,0.85
+1254,Invalid,0.82,0.13,0.05
+454,Manual Review,0.15,0.72,0.13
