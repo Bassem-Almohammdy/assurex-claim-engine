@@ -1,17 +1,18 @@
 {
   "classes": [
-    "Valid",
-    "Invalid",
-    "Manual Review"
+    "Manual_Review",
+    "Invalid_Claim",
+    "Valid_Claim"
   ],
   "index_to_label": {
-    "0": "Valid",
-    "1": "Invalid",
-    "2": "Manual Review"
+    "0": "Manual_Review",
+    "1": "Invalid_Claim",
+    "2": "Valid_Claim"
   },
   "folder_names": {
-    "Valid": "Valid_Claim",
+    "Manual Review": "Manual_Review",
     "Invalid": "Invalid_Claim",
-    "Manual Review": "Manual_Review"
-  }
+    "Valid": "Valid_Claim"
+  },
+  "source": "auto-generated from labels.txt — do not edit manually"
 }

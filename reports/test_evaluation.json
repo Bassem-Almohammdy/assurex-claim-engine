@@ -1,0 +1,254 @@
+{
+  "model_version": "tm-2026-09-28-v2-final",
+  "dataset_dir": "output/tm_dataset/test",
+  "total_images": 225,
+  "correct": 187,
+  "accuracy": 0.8311,
+  "per_class": {
+    "Invalid_Claim": {
+      "total": 75,
+      "correct": 67,
+      "accuracy": 0.8933
+    },
+    "Manual_Review": {
+      "total": 75,
+      "correct": 54,
+      "accuracy": 0.72
+    },
+    "Valid_Claim": {
+      "total": 75,
+      "correct": 66,
+      "accuracy": 0.88
+    }
+  },
+  "errors": [
+    {
+      "file": "output/tm_dataset/test/Invalid_Claim/1107.jpg",
+      "true": "Invalid_Claim",
+      "predicted": "Manual_Review",
+      "confidence": 0.6658
+    },
+    {
+      "file": "output/tm_dataset/test/Invalid_Claim/1461.jpg",
+      "true": "Invalid_Claim",
+      "predicted": "Manual_Review",
+      "confidence": 0.9484
+    },
+    {
+      "file": "output/tm_dataset/test/Invalid_Claim/1492.jpg",
+      "true": "Invalid_Claim",
+      "predicted": "Manual_Review",
+      "confidence": 0.5045
+    },
+    {
+      "file": "output/tm_dataset/test/Invalid_Claim/395.jpg",
+      "true": "Invalid_Claim",
+      "predicted": "Manual_Review",
+      "confidence": 0.8792
+    },
+    {
+      "file": "output/tm_dataset/test/Invalid_Claim/402.jpg",
+      "true": "Invalid_Claim",
+      "predicted": "Manual_Review",
+      "confidence": 0.8514
+    },
+    {
+      "file": "output/tm_dataset/test/Invalid_Claim/556.jpg",
+      "true": "Invalid_Claim",
+      "predicted": "Manual_Review",
+      "confidence": 0.5819
+    },
+    {
+      "file": "output/tm_dataset/test/Invalid_Claim/616.jpg",
+      "true": "Invalid_Claim",
+      "predicted": "Manual_Review",
+      "confidence": 0.6867
+    },
+    {
+      "file": "output/tm_dataset/test/Invalid_Claim/732.jpg",
+      "true": "Invalid_Claim",
+      "predicted": "Manual_Review",
+      "confidence": 0.623
+    },
+    {
+      "file": "output/tm_dataset/test/Manual_Review/1073.jpg",
+      "true": "Manual_Review",
+      "predicted": "Invalid_Claim",
+      "confidence": 0.9662
+    },
+    {
+      "file": "output/tm_dataset/test/Manual_Review/1146.jpg",
+      "true": "Manual_Review",
+      "predicted": "Valid_Claim",
+      "confidence": 0.5625
+    },
+    {
+      "file": "output/tm_dataset/test/Manual_Review/1166.jpg",
+      "true": "Manual_Review",
+      "predicted": "Invalid_Claim",
+      "confidence": 0.8275
+    },
+    {
+      "file": "output/tm_dataset/test/Manual_Review/1280.jpg",
+      "true": "Manual_Review",
+      "predicted": "Invalid_Claim",
+      "confidence": 0.5954
+    },
+    {
+      "file": "output/tm_dataset/test/Manual_Review/136.jpg",
+      "true": "Manual_Review",
+      "predicted": "Invalid_Claim",
+      "confidence": 0.5945
+    },
+    {
+      "file": "output/tm_dataset/test/Manual_Review/1368.jpg",
+      "true": "Manual_Review",
+      "predicted": "Valid_Claim",
+      "confidence": 0.736
+    },
+    {
+      "file": "output/tm_dataset/test/Manual_Review/1390.jpg",
+      "true": "Manual_Review",
+      "predicted": "Invalid_Claim",
+      "confidence": 0.879
+    },
+    {
+      "file": "output/tm_dataset/test/Manual_Review/1431.jpg",
+      "true": "Manual_Review",
+      "predicted": "Invalid_Claim",
+      "confidence": 0.5027
+    },
+    {
+      "file": "output/tm_dataset/test/Manual_Review/148.jpg",
+      "true": "Manual_Review",
+      "predicted": "Invalid_Claim",
+      "confidence": 0.9305
+    },
+    {
+      "file": "output/tm_dataset/test/Manual_Review/1483.jpg",
+      "true": "Manual_Review",
+      "predicted": "Valid_Claim",
+      "confidence": 0.9403
+    },
+    {
+      "file": "output/tm_dataset/test/Manual_Review/311.jpg",
+      "true": "Manual_Review",
+      "predicted": "Valid_Claim",
+      "confidence": 0.6364
+    },
+    {
+      "file": "output/tm_dataset/test/Manual_Review/313.jpg",
+      "true": "Manual_Review",
+      "predicted": "Invalid_Claim",
+      "confidence": 0.922
+    },
+    {
+      "file": "output/tm_dataset/test/Manual_Review/348.jpg",
+      "true": "Manual_Review",
+      "predicted": "Invalid_Claim",
+      "confidence": 0.5142
+    },
+    {
+      "file": "output/tm_dataset/test/Manual_Review/35.jpg",
+      "true": "Manual_Review",
+      "predicted": "Invalid_Claim",
+      "confidence": 0.9617
+    },
+    {
+      "file": "output/tm_dataset/test/Manual_Review/454.jpg",
+      "true": "Manual_Review",
+      "predicted": "Valid_Claim",
+      "confidence": 0.6374
+    },
+    {
+      "file": "output/tm_dataset/test/Manual_Review/470.jpg",
+      "true": "Manual_Review",
+      "predicted": "Invalid_Claim",
+      "confidence": 0.7488
+    },
+    {
+      "file": "output/tm_dataset/test/Manual_Review/542.jpg",
+      "true": "Manual_Review",
+      "predicted": "Invalid_Claim",
+      "confidence": 0.7164
+    },
+    {
+      "file": "output/tm_dataset/test/Manual_Review/689.jpg",
+      "true": "Manual_Review",
+      "predicted": "Invalid_Claim",
+      "confidence": 0.9743
+    },
+    {
+      "file": "output/tm_dataset/test/Manual_Review/823.jpg",
+      "true": "Manual_Review",
+      "predicted": "Invalid_Claim",
+      "confidence": 0.7724
+    },
+    {
+      "file": "output/tm_dataset/test/Manual_Review/985.jpg",
+      "true": "Manual_Review",
+      "predicted": "Invalid_Claim",
+      "confidence": 0.5498
+    },
+    {
+      "file": "output/tm_dataset/test/Manual_Review/992.jpg",
+      "true": "Manual_Review",
+      "predicted": "Valid_Claim",
+      "confidence": 0.5783
+    },
+    {
+      "file": "output/tm_dataset/test/Valid_Claim/1077.jpg",
+      "true": "Valid_Claim",
+      "predicted": "Manual_Review",
+      "confidence": 0.8522
+    },
+    {
+      "file": "output/tm_dataset/test/Valid_Claim/1267.jpg",
+      "true": "Valid_Claim",
+      "predicted": "Manual_Review",
+      "confidence": 0.9799
+    },
+    {
+      "file": "output/tm_dataset/test/Valid_Claim/189.jpg",
+      "true": "Valid_Claim",
+      "predicted": "Manual_Review",
+      "confidence": 0.647
+    },
+    {
+      "file": "output/tm_dataset/test/Valid_Claim/424.jpg",
+      "true": "Valid_Claim",
+      "predicted": "Manual_Review",
+      "confidence": 0.637
+    },
+    {
+      "file": "output/tm_dataset/test/Valid_Claim/496.jpg",
+      "true": "Valid_Claim",
+      "predicted": "Manual_Review",
+      "confidence": 0.5371
+    },
+    {
+      "file": "output/tm_dataset/test/Valid_Claim/718.jpg",
+      "true": "Valid_Claim",
+      "predicted": "Manual_Review",
+      "confidence": 0.9254
+    },
+    {
+      "file": "output/tm_dataset/test/Valid_Claim/817.jpg",
+      "true": "Valid_Claim",
+      "predicted": "Manual_Review",
+      "confidence": 0.7593
+    },
+    {
+      "file": "output/tm_dataset/test/Valid_Claim/853.jpg",
+      "true": "Valid_Claim",
+      "predicted": "Manual_Review",
+      "confidence": 0.9036
+    },
+    {
+      "file": "output/tm_dataset/test/Valid_Claim/999.jpg",
+      "true": "Valid_Claim",
+      "predicted": "Manual_Review",
+      "confidence": 0.9189
+    }
+  ]
+}

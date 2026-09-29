@@ -1,0 +1,103 @@
+{
+  "validation": {
+    "accuracy": 0.8089,
+    "total": 225,
+    "model_version": "tm-2026-09-28-v2-final",
+    "confusion_matrix_rows_true_cols_pred": {
+      "Manual_Review": {
+        "Manual_Review": 57,
+        "Invalid_Claim": 11,
+        "Valid_Claim": 7
+      },
+      "Invalid_Claim": {
+        "Manual_Review": 15,
+        "Invalid_Claim": 60,
+        "Valid_Claim": 0
+      },
+      "Valid_Claim": {
+        "Manual_Review": 10,
+        "Invalid_Claim": 0,
+        "Valid_Claim": 65
+      }
+    },
+    "classes": [
+      "Manual_Review",
+      "Invalid_Claim",
+      "Valid_Claim"
+    ],
+    "per_class": {
+      "Manual_Review": {
+        "precision": 0.6951,
+        "recall": 0.76,
+        "f1": 0.7261,
+        "support": 75
+      },
+      "Invalid_Claim": {
+        "precision": 0.8451,
+        "recall": 0.8,
+        "f1": 0.8219,
+        "support": 75
+      },
+      "Valid_Claim": {
+        "precision": 0.9028,
+        "recall": 0.8667,
+        "f1": 0.8844,
+        "support": 75
+      }
+    },
+    "macro_f1": 0.8108,
+    "errors_total": 43,
+    "errors_with_conf>=0.90": 18
+  },
+  "test": {
+    "accuracy": 0.8311,
+    "total": 225,
+    "model_version": "tm-2026-09-28-v2-final",
+    "confusion_matrix_rows_true_cols_pred": {
+      "Manual_Review": {
+        "Manual_Review": 54,
+        "Invalid_Claim": 15,
+        "Valid_Claim": 6
+      },
+      "Invalid_Claim": {
+        "Manual_Review": 8,
+        "Invalid_Claim": 67,
+        "Valid_Claim": 0
+      },
+      "Valid_Claim": {
+        "Manual_Review": 9,
+        "Invalid_Claim": 0,
+        "Valid_Claim": 66
+      }
+    },
+    "classes": [
+      "Manual_Review",
+      "Invalid_Claim",
+      "Valid_Claim"
+    ],
+    "per_class": {
+      "Manual_Review": {
+        "precision": 0.7606,
+        "recall": 0.72,
+        "f1": 0.7397,
+        "support": 75
+      },
+      "Invalid_Claim": {
+        "precision": 0.8171,
+        "recall": 0.8933,
+        "f1": 0.8535,
+        "support": 75
+      },
+      "Valid_Claim": {
+        "precision": 0.9167,
+        "recall": 0.88,
+        "f1": 0.898,
+        "support": 75
+      }
+    },
+    "macro_f1": 0.8304,
+    "errors_total": 38,
+    "errors_with_conf>=0.90": 11
+  },
+  "note": "محسوبة من validation_evaluation.json و test_evaluation.json (قوائم الأخطاء الكاملة)"
+}

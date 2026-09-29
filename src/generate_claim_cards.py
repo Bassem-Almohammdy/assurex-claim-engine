@@ -27,7 +27,6 @@ Card" جاهزة للاستخدام في تدريب Google Teachable Machine.
     output/tm_dataset/test/<Class>/<claim_id>.jpg         (Holdout - لا تُستخدم في التدريب)
     output/comparison_30/<claim_id>_<Class>.jpg           (عينة مقارنة نهائية، 30 Claim غير مستخدمة في التدريب)
     output/manifest.csv                                   (سجل كل صورة تم توليدها)
-    output/label_mapping.json                             (تعريف الفئات الثابت)
     output/training_log.json                              (إحصائيات التوليد لتوثيقها في التسليم)
 """
 
@@ -79,8 +78,38 @@ THEMES = [
 
 GOOD = (22, 163, 74)
 BAD = (220, 38, 38)
+WARN = (217, 119, 6)   # برتقالي تحذيري — لون ثابت غير مرتبط بالثيم لضمان قابلية تعلّمه بمعزل عن الثيم
 
-random.seed(42)  # لضمان أن التوليد قابل لإعادة الإنتاج (Reproducible)
+random.seed(42)  # ملاحظة: التشويش (Image.effect_noise) غير مُبذَّر، فالصور تتطابق في المحتوى لا في البايتات
+
+# ----------------------------------------------------------------------------
+# عتبات خطورة — مقاسة فعليًا على data/splits/train.csv (t-test + Cohen's d)
+# (القياسات مأخوذة من تحليل train.csv أثناء تطوير التصميم.)
+# ----------------------------------------------------------------------------
+REPAIR_RISK_THRESHOLD = 2       # فوق متوسط Invalid (2.54~2.63) ويفصل بوضوح عن Valid (~1.0)
+# ملاحظة تصحيح (تحقّق فعلي على الفئات الثلاث معًا، وليس فقط Invalid مقابل
+# Manual Review كما في الوثيقة الأصلية): Valid وInvalid متقاربتان في هذه
+# النسبة (~0.50 لكلتيهما)، فقط Manual Review أعلى بوضوح (~0.69-0.79) — لذا
+# نستخدم عتبة تحذير واحدة (WARN) فقط، لا عتبتين GOOD/BAD.
+CLAIM_RATIO_WARN = 0.65
+DAYS_RECENT_THRESHOLD = 600     # القيمة الوسطى تقريبًا بين متوسطي Valid/Manual/Invalid (366 / 937 / 1325 يوم)
+INVALID_ONLY_DAMAGE_TYPES = {"Physical Damage", "Unknown", "Water Damage"}
+
+
+def risk_level(rec) -> str:
+    """مؤشر خطورة مشتق (Derived Variable) من أربع حقول خام موجودة على البطاقة.
+    لا يستخدم claim_status ولا أي مخرج نموذج؛ انظر README_Member3.md القسم 8."""
+    score = 0
+    if rec.purchase_price > 0 and rec.claim_amount / rec.purchase_price >= CLAIM_RATIO_WARN:
+        score += 1
+    if rec.repair_history > REPAIR_RISK_THRESHOLD:
+        score += 1
+    if rec.damage_type in INVALID_ONLY_DAMAGE_TYPES:
+        score += 1
+    if rec.warranty_period_months > 0 and rec.product_age_months / rec.warranty_period_months > 1.0:
+        score += 1
+    return "high" if score >= 2 else ("medium" if score == 1 else "low")
+RISK_COLOR = {"high": BAD, "medium": WARN, "low": GOOD}
 
 
 # ----------------------------------------------------------------------------
@@ -178,8 +207,17 @@ def render_card(rec: ClaimRecord, variation: int) -> Image.Image:
     panel_box = (margin + jitter_x, margin + jitter_y, CARD_W - margin + jitter_x, CARD_H - margin + jitter_y)
     draw_rounded_panel(draw, panel_box, radius=22, fill=theme["panel"], outline=(226, 232, 240), width=2)
 
+    # -- Risk Banner: شريط لوني كبير منفصل تمامًا عن الرأس، ليس فوقه ------
+    level = risk_level(rec)
+    banner_x0 = panel_box[0] + 24
+    banner_x1 = panel_box[2] - 24
+    banner_y0 = panel_box[1] + 22
+    banner_y1 = banner_y0 + 46
+    draw_rounded_panel(draw, (banner_x0, banner_y0, banner_x1, banner_y1), radius=12, fill=RISK_COLOR[level])
+    draw.text((banner_x0 + 18, banner_y0 + 13), f"RISK LEVEL: {level.upper()}", font=f_h2, fill=(255, 255, 255))
+
     # -- Header --------------------------------------------------------
-    hx, hy = panel_box[0] + 28, panel_box[1] + 26
+    hx, hy = panel_box[0] + 28, banner_y1 + 24
     draw_rounded_panel(draw, (hx, hy, hx + 54, hy + 54), radius=14, fill=theme["accent"])
     draw.text((hx + 15, hy + 10), "AX", font=f_h2, fill=(255, 255, 255))
 
@@ -194,7 +232,9 @@ def render_card(rec: ClaimRecord, variation: int) -> Image.Image:
     x = panel_box[0] + 28
     draw.text((x, y), rec.product_category.upper(), font=f_h2, fill=theme["accent"])
     y += 34
-    draw.text((x, y), f"Damage Type: {rec.damage_type}", font=f_label, fill=theme["text"])
+    # Invalid تظهر حصريًا في 3 أنواع من أصل 8 — إشارة تصنيفية شبه حتمية
+    damage_color = WARN if rec.damage_type in INVALID_ONLY_DAMAGE_TYPES else theme["text"]
+    draw.text((x, y), f"Damage Type: {rec.damage_type}", font=f_label, fill=damage_color)
     y += 38
 
     # -- Warranty timeline bar -------------------------------------------
@@ -205,9 +245,19 @@ def render_card(rec: ClaimRecord, variation: int) -> Image.Image:
     raw_ratio = 0.0
     if rec.warranty_period_months > 0:
         raw_ratio = rec.product_age_months / rec.warranty_period_months
-    ratio = max(0.0, min(1.0, raw_ratio))
+    # التشبّع الثنائي عند 1.0 كان يرسم Invalid (~1.78x تجاوز) و
+    # Manual Review (~1.34x تجاوز) بشريط "ممتلئ بالكامل + أحمر" متطابق بصريًا،
+    # رغم أن شدة التجاوز نفسها هي الإشارة المميِّزة بين الفئتين.
+    if raw_ratio <= 1.0:
+        bar_color = GOOD
+        ratio = raw_ratio
+    elif raw_ratio <= 1.5:
+        bar_color = WARN            # تجاوز متوسط (نطاق Manual Review الشائع: ~1.34)
+        ratio = min(1.0, raw_ratio / 2.0)
+    else:
+        bar_color = BAD             # تجاوز حاد (نطاق Invalid الشائع: ~1.78)
+        ratio = 1.0
     fill_x = bar_x0 + int((bar_x1 - bar_x0) * ratio)
-    bar_color = BAD if raw_ratio > 1.0 else GOOD
     if fill_x > bar_x0:
         draw_rounded_panel(draw, (bar_x0, bar_y, fill_x, bar_y + bar_h), radius=8, fill=bar_color)
     draw.text((bar_x0, bar_y + bar_h + 6),
@@ -241,16 +291,32 @@ def render_card(rec: ClaimRecord, variation: int) -> Image.Image:
     # -- Repair history -----------------------------------------------------
     draw.text((x, y), "Repair History", font=f_label, fill=theme["text"])
     rh = max(0, int(rec.repair_history))
+    risk = rh > REPAIR_RISK_THRESHOLD
+    dot_color = BAD if risk else theme["accent"]
     dot_x = x
     dot_y = y + 30
     for i in range(min(rh, 8)):
-        draw.ellipse((dot_x, dot_y, dot_x + 14, dot_y + 14), fill=theme["accent"])
+        draw.ellipse((dot_x, dot_y, dot_x + 14, dot_y + 14), fill=dot_color)
         dot_x += 22
     if rh == 0:
         draw.text((x, dot_y - 2), "No previous repairs", font=f_small, fill=theme["muted"])
     else:
-        draw.text((dot_x + 6, dot_y - 2), f"({rh})", font=f_small, fill=theme["muted"])
+        suffix = " \u26a0" if risk else ""
+        draw.text((dot_x + 6, dot_y - 2), f"({rh}){suffix}", font=f_small,
+                   fill=(BAD if risk else theme["muted"]))
     y += 66
+
+    # -- Days since purchase tag (مع تصحيح الاتجاه) --------------
+    # تحقق فعلي على train.csv: Valid=366 يوم بالمتوسط، Manual Review=937،
+    # Invalid=1325 (الأعلى) — الملكية القديمة هي المرتبطة بـ Invalid، وليس
+    # الشراء الحديث كما افترضت المسودة الأصلية حتى بعد تصحيح رقم العتبة.
+    is_established = rec.days_since_purchase > DAYS_RECENT_THRESHOLD
+    tag_text = "Established Ownership" if is_established else "Recent Purchase"
+    if is_established:
+        badge(draw, (x, y), tag_text, (255, 255, 255), WARN, f_badge)
+    else:
+        badge(draw, (x, y), tag_text, theme["text"], (226, 232, 240), f_badge)
+    y += 40
 
     draw.line((x, y, panel_box[2] - 28, y), fill=(226, 232, 240), width=1)
     y += 20
@@ -270,15 +336,21 @@ def render_card(rec: ClaimRecord, variation: int) -> Image.Image:
         draw.text((panel_box[2] - 28 - vw, y), value, font=f_value, fill=theme["text"])
         y += 32
 
-    # -- claim amount vs purchase price mini bar --------------------------
+    # -- claim amount vs purchase price mini bar (مصحَّح) --------
+    # تحقق فعلي على الفئات الثلاث معًا (الوثيقة الأصلية قارنت Invalid بـ Manual
+    # Review فقط): Valid≈0.50 وInvalid≈0.50 متطابقتان تقريبًا، وManual Review
+    # فقط هي الأعلى بوضوح (~0.69-0.79). إذن هذا المؤشر يفصل Manual Review عن
+    # البقية، ولا يميّز Invalid عن Valid — لذا لا يُستخدم لونان (GOOD/BAD) بل
+    # درجة تحذير واحدة فقط عند دخول نطاق Manual Review النمطي، وإلا محايد.
     y += 6
     ratio2 = 0.0
     if rec.purchase_price > 0:
         ratio2 = max(0.0, min(1.5, rec.claim_amount / rec.purchase_price))
+    bar2_color = WARN if ratio2 >= CLAIM_RATIO_WARN else theme["accent"]
     draw_rounded_panel(draw, (x, y, panel_box[2] - 28, y + 12), radius=6, fill=(226, 232, 240))
     fill2 = x + int((panel_box[2] - 28 - x) * min(1.0, ratio2))
     if fill2 > x:
-        draw_rounded_panel(draw, (x, y, fill2, y + 12), radius=6, fill=theme["accent"])
+        draw_rounded_panel(draw, (x, y, fill2, y + 12), radius=6, fill=bar2_color)
     y += 30
 
     # -- Footer / watermark (no prediction, no decision) --------------------
@@ -354,7 +426,7 @@ def main():
             fname = f"{rec.claim_id}_v{v}.jpg"
             fpath = tm_dir / "train" / CLASS_FOLDER[rec.claim_status] / fname
             img.save(fpath, "JPEG", quality=88, optimize=True)
-            manifest_rows.append([rec.claim_id, "train", rec.claim_status, v, str(fpath)])
+            manifest_rows.append([rec.claim_id, "train", rec.claim_status, v, fpath.as_posix()])
             per_class_counts["train"][rec.claim_status] += 1
 
     # ---- VALIDATION: نسخة واحدة لكل Claim (Holdout - لا تُستخدم بالتدريب) --
@@ -364,7 +436,7 @@ def main():
         fname = f"{rec.claim_id}.jpg"
         fpath = tm_dir / "validation" / CLASS_FOLDER[rec.claim_status] / fname
         img.save(fpath, "JPEG", quality=88, optimize=True)
-        manifest_rows.append([rec.claim_id, "validation", rec.claim_status, 0, str(fpath)])
+        manifest_rows.append([rec.claim_id, "validation", rec.claim_status, 0, fpath.as_posix()])
         per_class_counts["validation"][rec.claim_status] += 1
 
     # ---- TEST: نسخة واحدة لكل Claim (Holdout) ------------------------------
@@ -374,7 +446,7 @@ def main():
         fname = f"{rec.claim_id}.jpg"
         fpath = tm_dir / "test" / CLASS_FOLDER[rec.claim_status] / fname
         img.save(fpath, "JPEG", quality=88, optimize=True)
-        manifest_rows.append([rec.claim_id, "test", rec.claim_status, 0, str(fpath)])
+        manifest_rows.append([rec.claim_id, "test", rec.claim_status, 0, fpath.as_posix()])
         per_class_counts["test"][rec.claim_status] += 1
 
     # ---- عينة المقارنة النهائية: 30 Claim (10 لكل فئة) من TEST فقط --------
@@ -393,7 +465,7 @@ def main():
         src = tm_dir / "test" / CLASS_FOLDER[rec.claim_status] / f"{rec.claim_id}.jpg"
         dst = comp_dir / f"{rec.claim_id}__{CLASS_FOLDER[rec.claim_status]}.jpg"
         Image.open(src).save(dst, "JPEG", quality=88, optimize=True)
-        comp_manifest.append({"claim_id": rec.claim_id, "true_class": rec.claim_status, "file": str(dst)})
+        comp_manifest.append({"claim_id": rec.claim_id, "true_class": rec.claim_status, "file": dst.as_posix()})
 
     # ---- ملفات التوثيق -----------------------------------------------------
     with open(out_dir / "manifest.csv", "w", newline="", encoding="utf-8") as f:
@@ -404,10 +476,8 @@ def main():
     with open(out_dir / "comparison_30_manifest.json", "w", encoding="utf-8") as f:
         json.dump(comp_manifest, f, ensure_ascii=False, indent=2)
 
-    label_mapping = {i: c for i, c in enumerate(CLASSES)}
-    with open(out_dir / "label_mapping.json", "w", encoding="utf-8") as f:
-        json.dump({"classes": CLASSES, "index_to_label": label_mapping,
-                   "folder_names": CLASS_FOLDER}, f, ensure_ascii=False, indent=2)
+    # ملاحظة: label_mapping.json لا يُكتب هنا عمدًا. ترتيب الفئات الحقيقي يأتي من
+    # labels.txt المُصدَّر من Teachable Machine ويُولَّد فقط عبر build_label_mapping.py.
 
     total_train_images = sum(per_class_counts["train"].values())
     log = {

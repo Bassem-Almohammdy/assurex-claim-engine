@@ -8,7 +8,7 @@ AssureX Claim Engine — Member 3
 (وليس فقط عينة الـ30 صورة)، ويحسب:
   - الدقة الإجمالية
   - الدقة لكل فئة (Valid / Invalid / Manual Review)
-  - قائمة كل الأخطاء (Confusion) مع الثقة، لتوثيقها في evaluation_notes.md
+  - قائمة كل الأخطاء (Confusion) مع الثقة، لتوثيقها في README_Member3.md (القسم 5)
 
 بخلاف predict_tm.py، هذا السكربت يحمّل النموذج مرة واحدة فقط، فيكون
 سريعاً حتى مع مئات الصور.
